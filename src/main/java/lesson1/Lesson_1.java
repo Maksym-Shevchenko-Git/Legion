@@ -1,4 +1,4 @@
-package lesson2;
+package lesson1;
 
 
 /*Task 1
