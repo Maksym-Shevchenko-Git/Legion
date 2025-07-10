@@ -231,7 +231,7 @@ public class lesson10_Test {
             String selectedValue = selectField.getFirstSelectedOption().getAttribute("value");
             assertEquals(valueToSelect, selectedValue);
         } catch (org.openqa.selenium.NoSuchElementException e) {
-            System.out.println("Can not find '" + valueToSelect + "' in  " + nameOfBrowser);
+            System.out.println("Birthday_dayTests. Can not find '" + valueToSelect + "' in  " + nameOfBrowser);
         }
     }
 
@@ -266,7 +266,7 @@ public class lesson10_Test {
             String selectedValue = selectField.getFirstSelectedOption().getAttribute("value");
             assertEquals(valueToSelect, selectedValue);
         } catch (org.openqa.selenium.NoSuchElementException e) {
-            System.out.println("Can not find '" + valueToSelect + "' in  " + nameOfBrowser);
+            System.out.println("Birthday_monthTests. Can not find '" + valueToSelect + "' in  " + nameOfBrowser);
         }
     }
 
@@ -301,7 +301,7 @@ public class lesson10_Test {
             String selectedValue = selectField.getFirstSelectedOption().getAttribute("value");
             assertEquals(valueToSelect, selectedValue);
         } catch (org.openqa.selenium.NoSuchElementException e) {
-            System.out.println("Can not find '" + valueToSelect + "' in  " + nameOfBrowser);
+            System.out.println("Birthday_yearTests. Can not find '" + valueToSelect + "' in  " + nameOfBrowser);
         }
     }
 
@@ -336,7 +336,7 @@ public class lesson10_Test {
             assertEquals(valueToSelect, sexRadioButton.getAttribute("value"));
 
         } catch (org.openqa.selenium.NoSuchElementException e) {
-            System.out.println("Can not find '" + valueToSelect + "' in  " + nameOfBrowser);
+            System.out.println("SexTests. Can not find '" + valueToSelect + "' in  " + nameOfBrowser);
         }
     }
 }
