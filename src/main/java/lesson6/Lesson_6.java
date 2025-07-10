@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+// Удален импорт static java.lang.StringTemplate.STR;
+
 public class Lesson_6 {
 
     static HashMap<Titles, Integer> salary = new HashMap<>();
@@ -109,11 +111,14 @@ class Employee {
     }
 
     void receiveSalary(String name) {
-        System.out.println(STR."\{name} will receive a salary.");
+        // Заменено STR. на конкатенацию строк
+        System.out.println(name + " will receive a salary.");
     }
 
     void toString(Employee emp) {
-        System.out.println(STR."Name:\{emp.name}, Title: \{emp.title.name()}, Address: \{emp.address}, Birth Date: \{emp.dob}, Salary:$\{emp.salary}.");
+        // Заменено STR. на String.format() для лучшей читаемости
+        System.out.println(String.format("Name:%s, Title: %s, Address: %s, Birth Date: %s, Salary:$%d.",
+                emp.name, emp.title.name(), emp.address, emp.dob, emp.salary));
     }
 
     public void setName(String name) {
@@ -132,11 +137,13 @@ class Manager extends Employee {
     }
 
     public static void hireEmployee(String name) {
-        System.out.println(STR."Manager \{name} will hire an employee.");
+        // Заменено STR. на конкатенацию строк
+        System.out.println("Manager " + name + " will hire an employee.");
     }
 
     public static void fireEmployee(String name) {
-        System.out.println(STR."Manager \{name} will fire an employee.");
+        // Заменено STR. на конкатенацию строк
+        System.out.println("Manager " + name + " will fire an employee.");
     }
 }
 
@@ -147,11 +154,13 @@ class Clerk extends Employee {
     }
 
     public static void callCustomer(String name) {
-        System.out.println(STR."Clerk \{name} will call a customer.");
+        // Заменено STR. на конкатенацию строк
+        System.out.println("Clerk " + name + " will call a customer.");
     }
 
     public static void answerIncomingCall(String name) {
-        System.out.println(STR."Clerk \{name} will answer the incoming call.");
+        // Заменено STR. на конкатенацию строк
+        System.out.println("Clerk " + name + " will answer the incoming call.");
     }
 }
 
@@ -162,14 +171,17 @@ class Accountant extends Employee {
     }
 
     public static void openAccount(String name) {
-        System.out.println(STR."Accountant \{name} will open an account.");
+        // Заменено STR. на конкатенацию строк
+        System.out.println("Accountant " + name + " will open an account.");
     }
 
     public static void closeAccount(String name) {
-        System.out.println(STR."Accountant \{name} will close an account.");
+        // Заменено STR. на конкатенацию строк
+        System.out.println("Accountant " + name + " will close an account.");
     }
 
     public static void createReport(String name) {
-        System.out.println(STR."Accountant\{name} will create a report.");
+        // Заменено STR. на конкатенацию строк
+        System.out.println("Accountant " + name + " will create a report.");
     }
 }
