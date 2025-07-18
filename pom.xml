@@ -11,26 +11,32 @@
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
-        <junit.jupiter.version>5.11.0-M1</junit.jupiter.version>
+        <!-- Рекомендуется использовать стабильную версию JUnit Jupiter -->
+        <junit.jupiter.version>5.10.2</junit.jupiter.version>
         <selenium.version>4.22.0</selenium.version>
         <webdrivermanager.version>6.1.0</webdrivermanager.version>
         <log4j.version>2.25.0</log4j.version>
         <slf4j.api.version>2.0.13</slf4j.api.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
     <dependencies>
+        <!-- JUnit Jupiter Dependencies -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>${junit.jupiter.version}</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.jupiter.version}</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-params</artifactId>
@@ -38,12 +44,27 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Selenium Java Dependency -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>${selenium.version}</version>
         </dependency>
 
+        <!-- Selenium DevTools Dependency for Chrome -->
+        <!-- Обновлено: Версия 'v124' должна соответствовать вашей версии Selenium Java 4.22.0,
+             хотя ваш браузер Chrome имеет версию 138.
+             Selenium 4.22.0 поддерживает CDP v124, v125 и v126.
+             Мы используем v124, так как она явно указана как доступная для 4.22.0. -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-devtools-v124</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+
+        <!-- WebDriverManager Dependency -->
+        <!-- Scope 'test' означает, что эта зависимость доступна только во время компиляции и выполнения тестов.
+             Это стандартная практика для WebDriverManager. -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
@@ -51,27 +72,34 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Log4j API and Core -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
             <version>${log4j.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>${log4j.version}</version>
         </dependency>
+
+        <!-- SLF4J Binding for Log4j2 -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j2-impl</artifactId>
             <version>${log4j.version}</version>
             <scope>compile</scope>
         </dependency>
+
+        <!-- SLF4J API -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.api.version}</version>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -90,7 +118,7 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>3.2.5</version>
                     <configuration>
-                        <statelessTestsetReporter implementor="org.apache.maven.plugin.surefire.ConsoleOutputReporter" />
+                        <statelessTestsetReporter implementor="org.apache.maven.plugin.surefire.ConsoleOutputReporter"/>
                         <argLine>-Dfile.encoding=UTF-8</argLine>
                     </configuration>
                 </plugin>
