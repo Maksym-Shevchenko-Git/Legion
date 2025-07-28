@@ -57,7 +57,7 @@ public class lesson11_2_Test {
     @CsvSource({"menu-item-128,Home", "menu-item-2997,Company", "menu-item-134,Products", "menu-item-132,Industries", "menu-item-2552,Knowledge Center", "menu-item-4167,Contact"})
     public void navigateToPages(String i, String name) {
         WebElement subMenuElement = null;
-        By link = By.id(i.toString());
+        By link = By.id(i);
         WebElement elementToFocus = wait.until(visibilityOfElementLocated(link));
         Actions actions = new Actions(chromeDriver);
         actions.moveToElement(elementToFocus).perform();
